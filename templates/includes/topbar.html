@@ -1,0 +1,42 @@
+<!-- Top header start -->
+<!-- Log on to codeastro.com for more projects -->
+<header class="top-header th-2 top-header-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-7">
+                <div class="list-inline">
+                    <a href="tel:+1 125-010-0110"><i class="fa fa-phone"></i>+998 99 944 18 04</a>
+                    <a href="tel:info@carweb.cm"><i class="fa fa-envelope"></i>xudayorovsultanbek@gamil.com</a>
+                    <a href="tel:info@carweb.cm"><i class="fa fa-clock-o"></i>Dushanba - shanba: 8:00 - 18:30</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-5">
+                <ul class="top-social-media pull-right">
+
+                  {% if user.is_authenticated %}
+                  <li>
+                      <a href="{% url 'dashboard' %}" class="btn btn-secondary btn-xs"><i class="fa fa-tachometer"></i> Boshqaruv paneli</a>
+                  </li>
+
+                  <li>
+                      <a href="javascript:{document.getElementById('logout').submit()}" class="btn btn-danger btn-xs"><i class="fa fa-sign-out"></i> Chiqish</a>
+                      <form action="{% url 'logout' %}" id="logout" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden">
+                      </form>
+                  </li>
+                  {% else %}
+                    <li>
+                        <a href="{% url 'login' %}" class="btn btn-secondary btn-xs"><i class="fa fa-sign-in"></i> Kirish</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'register' %}" class="btn btn-secondary btn-xs"><i class="fa fa-user-plus"></i> Ro'yxatdan o'tish</a>
+                    </li>
+                  {% endif %}
+                </ul>
+				<!-- Log on to codeastro.com for more projects -->
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Top header end -->
